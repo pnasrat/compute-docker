@@ -1,7 +1,5 @@
-Getting Started with Docker on Google Compute Engine
+Getting Started with Docker on GCE
 ==============
-
-Getting Started with Docker on Google Cloud Platform
 
 1. go to [Google Cloud Console](https://cloud.google.com/console) and create new Cloud Project with billing enabled.
 
