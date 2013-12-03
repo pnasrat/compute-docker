@@ -18,23 +18,24 @@ $ gcutil addinstance docker-playground  --image=backports-debian-7
 <insert instance selection blurp here>
 ```
 
-1. ssh into your instance and Install docker latest release:
+1. enable IP forwarding:
 
 ```
-$ gcutil ssh docker-playground
+docker-playground:~$ echo net.ipv4.ip_forward=1 | sudo tee /etc/sysctl.d/99-docker.conf 
+docker-playground:~$ sudo sysctl --system
+```
+
+1. Install docker latest release and configure it to start when the instance boot:
+
+```
 docker-playground:~$ curl get.docker.io | bash
+docker-playground:~$ sudo update-rc.d docker defaults
 ```
 
 1. start docker daemon in the background:
 
 ```
 docker-playground:~$ sudo nohup docker -d &
-```
-
-1. enable IP forwarding:
-
-```
-docker-playground:~$ sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
 1. start a new container:
